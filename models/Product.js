@@ -4,10 +4,10 @@ const Product = {
     getAll: (callback) => {
         db.query('select * from products', callback);
     },
-    getById: (id, callback) =>{
-        db.query('select * from products where id = ?', [id],callback);
+    getById: (id, callback) => {
+        db.query('SELECT * FROM products WHERE id = ?', [id], callback);
     },
-    craete: (data, callback) =>{
+    create: (data, callback) =>{
         db.query('insert into products set ?', data,callback);
     },
     update: (id,data, callback) =>{

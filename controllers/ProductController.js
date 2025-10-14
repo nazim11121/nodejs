@@ -8,13 +8,13 @@ exports.getAllProducts = (req, res) => {
 };
 
 exports.getProductById = (req, res) => {
-    const id = req.param.id;
+  const id = req.params.id;
 
-    Product.getById(id, (err, results) => {
-        if(err) return res.status(500).json({message: err});
-        if (results.length === 0) return res.status(404).json({message: 'Not Found'});
-        res.json(results[0]);
-    });
+  Product.getById(id, (err, results) => {
+    if (err) return res.status(500).json({ message: err });
+    if (results.length === 0) return res.status(404).json({ message: 'Not Found' });
+    res.json(results[0]);
+  });
 };
 
 exports.createProduct = (req, res) => {
@@ -27,7 +27,7 @@ exports.createProduct = (req, res) => {
 };
 
 exports.updateProduct = (req, res) => {
-    const id = req.param.id;
+    const id = req.params.id;
     const data = req.body;
 
     Product.update(id,data, (err, results) => {
@@ -37,7 +37,7 @@ exports.updateProduct = (req, res) => {
 };
 
 exports.deleteProduct = (req, res) => {
-    const id = req.param.id;
+    const id = req.params.id;
 
     Product.delete(id, (err, results) => {
         if(err) return res.status(500).json({message: err});
